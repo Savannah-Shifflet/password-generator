@@ -17,11 +17,27 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword() {
-    var passwordLength = window.prompt("How long does your password need to be? (between 8-128 characters)");
-    Number(passwordLength);
-    if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-      window.alert("Please enter a number between 8 and 128");
-    }
+  
+  // ask for password length input
+  var passwordLength = window.prompt("How long does your password need to be? (between 8-128 characters)");
+  // make prompt input into var type of number instead of string
+  Number(passwordLength);
+  // validate user entry to ensure it is a number and in the correct range
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    window.alert("Please enter a number between 8 and 128");
+  }
 
-   
+  // confirm character types that user needs
+  var upper = window.confirm("Do you want uppercase letters in your password?");
+  var lower = window.confirm("Do you want lower case letters in your password?");
+  var special = window.confirm("Do you want special characters in your password?");
+  var number = window.confirm("Do you want numbers in your password?");
+
+  // identify all possible characters to use in password generation
+  var upperLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var numberList = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  var specialCharacters = ["!", "\"", , "\#", "\$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+
+
 }
