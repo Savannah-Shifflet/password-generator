@@ -8,20 +8,18 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-  password = passwordLength; 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+var newCharacter = [];
+var passwordArray = [];
 
 function generatePassword() {
   
-  // ask for password length input
-  var passwordLength = window.prompt("How long does your password need to be? (between 8-128 characters)");
-  // make prompt input into var type of number instead of string
-  Number(passwordLength);
+  // ask for password length input and make a number type
+  var passwordLength = parseInt(window.prompt("How long does your password need to be? (between 8-128 characters)"));
   // validate user entry to ensure it is a number and in the correct range
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     window.alert("Please enter a number between 8 and 128");
