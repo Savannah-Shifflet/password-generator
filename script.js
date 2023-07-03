@@ -13,10 +13,6 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-var newCharacter = [];
-var passwordArray = [];
-var randomCharacters = [];
-
 function generatePassword() {
 
   // ask for password length input and make a number type
@@ -39,32 +35,51 @@ function generatePassword() {
   var specialCharacters = ["!", "\"", "\#", "\$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
   // Based on user's input on character type, create an array with the appropriate character options
-  
+
   // validate that one character type was selected
   if (upper === false && lower === false && special === false && number === false) {
     window.alert("Please select at least one type of character");
     generatePassword();
-  } 
-  
+  }
+
+  // array of all possible characters to select from when randomizing a password
+  var randomCharacters = [];
+
   // add all upperLetters to the full possibility of characters if it was confirmed 
   if (upper === true) {
-    randomCharacters.push(upperLetters);
+    randomCharacters.push(...upperLetters);
   }
-  
+
   // add all lowerLetters to the full possibility of characters if it was confirmed 
   if (lower === true) {
-    randomCharacters.push(lowerLetters);
+    randomCharacters.push(...lowerLetters);
   }
 
   // add all specialCharacters to the full possibility of characters if it was confirmed 
   if (special === true) {
-    randomCharacters.push(specialCharacters);
-  }
-  
-  // add all numbers to the full possibility of characters if it was confirmed 
-  if (number === true) {
-    randomCharacters.push(numberList);
+    randomCharacters.push(...specialCharacters);
   }
 
+  // add all numbers to the full possibility of characters if it was confirmed 
+  if (number === true) {
+    randomCharacters.push(...numberList);
+  }
   
+
+  // variable for each random character to be selected
+  var newCharacter = [];
+
+  // variable for the array of random characters to be pushed to
+  var passwordArray = [];
+
+  // Generate password array of random characters using the randomCharacters array
+  for (i = 0; i < passwordLength; i++) {
+    newCharacter = randomCharacters[(Math.floor(Math.random() * randomCharacters.length))];
+    passwordArray.push(newCharacter);
+  }
+
+  // turn password array into a string to be output on page
+  password = passwordArray;
+
+  return password.join("");
 }
