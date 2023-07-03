@@ -12,7 +12,7 @@ N/A
 
 The page can be viewed [here](https://savannah-shifflet.github.io/password-generator/). Below is a screenshot of the page. 
 
-![Screenshot of the password generator]()
+![Screenshot of the password generator](./assets/images/screencapture-savannah-shifflet-github-io-password-generator.png)
 
 ## Credits
 
